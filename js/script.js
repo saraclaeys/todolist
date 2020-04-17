@@ -33,3 +33,15 @@ function addToDo(toDo) {
 
     list.insertAdjacentHTML(position, item);
 }
+
+// add an item to the list using the enter key
+document.addEventListener("keyup", function (even) {
+    if (event.keyCode == 13) {
+        const toDo = input.value;
+
+        // if the input isn't empty
+        if (toDo) {
+            addToDo(toDo);
+        }
+    }
+});
