@@ -10,8 +10,11 @@ const UNCHECK = "fa-circle-thin";
 const LINE_THROUGH = "lineThrough";
 
 // Variables
-let LIST = []
-id = 0;
+let LIST, id;
+
+// get item from localstorage
+
+
 
 // Show todays date
 const options = {
@@ -60,6 +63,10 @@ document.addEventListener("keyup", function (even) {
                 done: false,
                 trash: false
             });
+
+            // add item to localstorage
+            localStorage.setItem("TODO", JSON.stringify(LIST));
+            id++;
         }
         input.value = "";
     }
@@ -91,4 +98,7 @@ list.addEventListener("click", function (event) {
     } else if (elementJob == "delete") {
         removeToDo(element);
     }
+
+    // add item to localstorage
+    localStorage.setItem("TODO", JSON.stringify(LIST));
 });
